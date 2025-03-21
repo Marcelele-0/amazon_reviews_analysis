@@ -16,6 +16,7 @@ def main():
 
 
     df = parse_data(raw_lines)
+    df = clean_data(df)
     
     # Prosta analiza
     print(df.head())
