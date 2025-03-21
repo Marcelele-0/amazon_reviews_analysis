@@ -24,7 +24,7 @@ This project analyzes Amazon product reviews using Machine Learning and NLP tech
 ## Dataset
 Dataset used:  
 **Amazon Cell Phones & Accessories reviews**  
-Source: [Amazon Reviews - Kaggle Archive](https://nijianmo.github.io/amazon/index.html)
+Source: [Amazon Reviews](https://snap.stanford.edu/data/web-Amazon-links.html)
 
 Format: `Cell_Phones_&_Accessories.txt.gz`
 
