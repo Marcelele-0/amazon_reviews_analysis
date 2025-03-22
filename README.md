@@ -1,4 +1,4 @@
- # Amazon Reviews Analysis
+# Amazon Reviews Analysis
 
 - Data Science project focused on exploratory analysis, sentiment classification, recommendation system, and clustering based on Amazon product reviews from the "Cell Phones & Accessories" category.
 
@@ -11,8 +11,8 @@
 4. [Installation & Setup](#installation-and-setup)
 5. [Usage](#usage)
 6. [Technologies](#technologies)
-7. [Planned Features](#planned-features)
-
+7. [Findings from EDA](#findings-from-eda)
+8. [Planned Features](#planned-features)
 
 ---
 
@@ -60,12 +60,41 @@ conda env create -f environment.yaml
 conda activate amazon_reviews
 ```
 
+## Usage
+
+To run the data preprocessing and analysis, execute the following command:
+
+```bash
+python src/preprocessing.py
+```
+
 ## Technologies
   - python
   - pandas
   - numpy
   - scikit-learn
   - matplotlib
+
+## Findings from EDA
+
+1. **Missing Values**:
+   - Significant number of missing values in `product/price` and `review/userId`.
+   - `review/profileName` also has a considerable amount of missing values.
+
+2. **Unknown Values**:
+   - Many entries have 'unknown' as the value for `product/price`, `review/userId`, and `review/profileName`.
+
+3. **Data Types**:
+   - `review/score` is converted to float.
+   - `review/time` is converted to datetime.
+   - `review/helpfulness` is split into `review/helpfulness_numerator` and `review/helpfulness_denominator`.
+
+4. **Inconsistent Prices**:
+   - Products with the same `productId` or `product/title` have different prices, indicating potential data quality issues.
+
+5. **General Statistics**:
+   - The dataset contains 236,243 rows and 10 columns after cleaning.
+   - The percentage of missing data for each column is significant, especially for `product/price`.
 
 ## Planned Features
 - [ ] Exploratory Data Analysis (EDA)

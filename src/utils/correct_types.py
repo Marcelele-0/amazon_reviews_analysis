@@ -31,8 +31,6 @@ def convert_data_types(df: pd.DataFrame) -> pd.DataFrame:
 
     return df
 
-import pandas as pd
-
 def clean_data(df: pd.DataFrame) -> pd.DataFrame:
     """
     Cleans the DataFrame by converting columns to appropriate data types.
@@ -43,21 +41,20 @@ def clean_data(df: pd.DataFrame) -> pd.DataFrame:
     Returns:
         pd.DataFrame: The cleaned DataFrame with appropriate data types.
     """
-    
-    # Zmieniamy kolumny tekstowe na string
+    # Convert text columns to string
     text_columns = ['product/title', 'review/summary', 'review/text']
     df[text_columns] = df[text_columns].astype('string')
     
-    # Zmieniamy kolumny liczbowe na float lub int
-    df['product/price'] = pd.to_numeric(df['product/price'], errors='coerce')  # Zmiana na float
-    df['review/score'] = pd.to_numeric(df['review/score'], errors='coerce')  # Zmiana na float
+    # Convert numeric columns to float or int
+    df['product/price'] = pd.to_numeric(df['product/price'], errors='coerce')  # Convert to float
+    df['review/score'] = pd.to_numeric(df['review/score'], errors='coerce')  # Convert to float
     df['review/helpfulness_numerator'] = pd.to_numeric(df['review/helpfulness'].str.split('/').str[0], errors='coerce')
     df['review/helpfulness_denominator'] = pd.to_numeric(df['review/helpfulness'].str.split('/').str[1], errors='coerce')
     
-    # Zmieniamy czas na datetime
+    # Convert time to datetime
     df['review/time'] = pd.to_datetime(df['review/time'], unit='s', errors='coerce')
     
-    # Zmieniamy kolumny z ID i nazwami na string (choć w zasadzie mogą pozostać object, string będzie bardziej optymalny)
+    # Convert ID and name columns to string
     id_columns = ['product/productId', 'review/userId', 'review/profileName']
     df[id_columns] = df[id_columns].astype('string')
     

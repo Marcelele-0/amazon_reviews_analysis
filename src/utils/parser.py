@@ -3,7 +3,7 @@ import pandas as pd
 def parse_data(raw_lines: list) -> pd.DataFrame:
     """
     Parses the raw lines of dataset into a pandas DataFrame.
-    Used when a coulmn is not consistent in number of lines.
+    Used when a column is not consistent in number of lines.
 
     Args:
         raw_lines (list): List of raw .txt lines.
@@ -15,7 +15,7 @@ def parse_data(raw_lines: list) -> pd.DataFrame:
     current_review = {}
 
     for line in raw_lines:
-        # skip empty lines
+        # Skip empty lines
         if line.strip() == "":
             continue
 
