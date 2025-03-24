@@ -10,3 +10,7 @@ __pycache__/
 
 # Data
 data/*
+
+# Ignore Jupyter notebook metadata
+.ipynb_checkpoints/
+*.ipynb_checkpoints
