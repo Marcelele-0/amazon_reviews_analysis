@@ -34,14 +34,17 @@ Format: `Cell_Phones_&_Accessories.txt.gz`
 ```plaintext
 amazon_reviews_analysis/
 │
-├── data/                      # Raw dataset              
-├── src/                       # Python modules (EDA, NLP, ML pipelines)
-│   ├── ...
-├── notebooks/
-│   └── amazon_reviews_analysis.ipynb  # Main notebook
-├── .gitignore
+├── data/                      # Raw and cleaned datasets              
+├── src/                       # Python modules for EDA, NLP, and ML pipelines
+│   ├── preprocessing.py       # Data preprocessing script
+│   ├── sentiment_analyzer.py  # Sentiment analysis script
+│   └── utils/                 # Helper modules for parsing and cleaning
+├── notebooks/                 # Jupyter notebooks for analysis
+│   └── amazon_reviews_analysis.ipynb  # Main analysis notebook
+├── notebook_summary.md        # Detailed analysis report                
 ├── environment.yml            # Conda environment setup
-└── README.md 
+├── .gitignore                 # Git ignore file
+└── README.md                  # Project documentation
 ```
 
 ## Installation and setup
@@ -77,28 +80,11 @@ python src/preprocessing.py
 
 ## Findings from EDA
 
-1. **Missing Values**:
-   - Significant number of missing values in `product/price` and `review/userId`.
-   - `review/profileName` also has a considerable amount of missing values.
-
-2. **Unknown Values**:
-   - Many entries have 'unknown' as the value for `product/price`, `review/userId`, and `review/profileName`.
-
-3. **Data Types**:
-   - `review/score` is converted to float.
-   - `review/time` is converted to datetime.
-   - `review/helpfulness` is split into `review/helpfulness_numerator` and `review/helpfulness_denominator`.
-
-4. **Inconsistent Prices**:
-   - Products with the same `productId` or `product/title` have different prices, indicating potential data quality issues.
-
-5. **General Statistics**:
-   - The dataset contains 236,243 rows and 10 columns after cleaning.
-   - The percentage of missing data for each column is significant, especially for `product/price`.
+ - look for them in report.md
 
 ## Planned Features
-- [ ] Exploratory Data Analysis (EDA)
-- [ ] Sentiment Analysis (Rule-based & ML)
+- [X] Exploratory Data Analysis (EDA)
+- [X] Sentiment Analysis (Rule-based & ML)
 - [ ] Recommendation Engine
-- [ ] Review Clustering & Topic Modeling
+- [X] Review Clustering 
 - [ ] Optional: Interactive Dashboard (Plotly/Dash)
